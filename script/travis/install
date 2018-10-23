@@ -7,6 +7,6 @@ if [[ "$TRAVIS_OS_NAME" == "linux" ]]; then
 elif [[ "$TRAVIS_OS_NAME" == "linux-ppc64le" ]]; then
     pip install --user tox==2.1.1
 else
-    sudo pip install --user --upgrade pip tox==2.1.1 virtualenv
+    sudo pip install --upgrade pip tox==2.1.1 virtualenv
     pip --version
 fi
