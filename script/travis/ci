@@ -3,9 +3,9 @@
 set -e
 
 if [[ "$TRAVIS_OS_NAME" == "linux" ]]; then
-    tox -e py27,py36,py37 -- tests/unit
+    tox -e py36 -- tests/unit
 elif [[ "$TRAVIS_OS_NAME" == "linux-ppc64le" ]]; then
-    tox -e py36,py37 -- tests/unit
+    tox -e py36 -- tests/unit
 else
-    tox -e py27,py36,py37 -- tests/unit
+    tox -e py36 -- tests/unit
 fi
