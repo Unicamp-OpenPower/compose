@@ -4,6 +4,8 @@ set -e
 
 if [[ "$TRAVIS_OS_NAME" == "linux" ]]; then
     tox -e py27,py34 -- tests/unit
+elif [[ "$TRAVIS_OS_NAME" == "linux-ppc64le" ]]; then
+    tox -e py34 -- tests/unit
 else
     # TODO: we could also install py34 and test against it
     tox -e py27 -- tests/unit
