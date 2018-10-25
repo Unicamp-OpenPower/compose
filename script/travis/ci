@@ -2,14 +2,14 @@
 
 set -e
 
-tox -- tests/unit
+# tox -- tests/unit
 
-#if [[ "$TRAVIS_OS_NAME" == "linux" ]]; then
-    #tox -e py36 -- tests/unit
-#elif [[ "$TRAVIS_OS_NAME" == "linux-ppc64le" ]]; then
-    #tox -e $(echo py$TRAVIS_PYTHON_VERSION | tr -d .) -- tests/unit
-#    tox -e py36 -- tests/unit
-#else
-    #tox -e $(echo py$TRAVIS_PYTHON_VERSION | tr -d .) -- tests/unit
-    #tox -e py36 -- tests/unit
-#fi
+if [[ "$TRAVIS_OS_NAME" == "linux" ]]; then
+    tox -e py27,py36,py37 -- tests/unit
+elif [[ "$TRAVIS_OS_NAME" == "linux-ppc64le" ]]; then
+    # tox -e $(echo py$TRAVIS_PYTHON_VERSION | tr -d .) -- tests/unit
+   tox -e py27,py36,py37 -- tests/unit
+else
+    # tox -e $(echo py$TRAVIS_PYTHON_VERSION | tr -d .) -- tests/unit
+    tox -e py27,py36,py37 -- tests/unit
+fi
