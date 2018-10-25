@@ -7,8 +7,6 @@ if [[ "$TRAVIS_OS_NAME" == "linux" ]]; then
     # TODO: requires auth to push, so disable for now
     # script/build/image master
     # docker push docker/compose:master
-elif [[ "$TRAVIS_OS_NAME" == "linux-ppc64le" ]]; then
-    script/build/linux
 else
     script/setup/osx
     script/build/osx

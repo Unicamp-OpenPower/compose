@@ -6,12 +6,13 @@ ARCH=$(uname -m)
 
 if [[ "$TRAVIS_OS_NAME" == "linux" ]]; then
     if [[ "$ARCH" == "ppc64le" ]]; then
-        sudo pip install --upgrade pip tox==2.1.1 virtualenv
+        sudo pip install --upgrade pip tox-travis
         pip --version
     else
-        pip install tox==2.1.1
+        sudo pip install --upgrade pip tox-travis
+        pip --version
     fi
 else
-    sudo pip install --upgrade pip tox==2.1.1 virtualenv
+    sudo pip install --upgrade pip tox-travis
     pip --version
 fi
