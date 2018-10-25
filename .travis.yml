@@ -9,7 +9,6 @@ language: python
 matrix:
   include:
     - os: linux-ppc64le
-      language: generic
       services:
       - docker
     - os: linux
