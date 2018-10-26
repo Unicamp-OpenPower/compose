@@ -19,7 +19,6 @@ if [[ "$ARCH" == "ppc64le" ]]; then
     cd bootloader
     python ./waf distclean all --no-lsb
     python waf all configure --no-lsb build install
-    /PyInstaller/bootloader/Linux-64bit/run
     cp ../PyInstaller/bootloader/Linux-64bit/run ../../pyinstaller
     cd $PREVDIR
 else
