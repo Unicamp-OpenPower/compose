@@ -15,7 +15,7 @@ if [[ "$ARCH" == "ppc64le" ]]; then
     PREVDIR=$(pwd)
     cd $VENV/bin/
     git clone https://github.com/pyinstaller/pyinstaller.git pyinstaller-src
-    cd pyinstaller-src && git checkout master
+    cd pyinstaller-src && git checkout tags/v3.3.1
     cd bootloader
     python ./waf distclean all --no-lsb
     python waf all configure --no-lsb build install
