@@ -17,15 +17,19 @@ if [[ "$ARCH" == "ppc64le" ]]; then
     git clone https://github.com/pyinstaller/pyinstaller.git pyinstaller-src
     cd pyinstaller-src && git checkout tags/v3.2.1
     cd bootloader
-    python ./waf distclean all --no-lsb
+    # python ./waf distclean all
+    # python ./waf distclean all --no-lsb
     python waf all configure --no-lsb build install
-    cp ../PyInstaller/bootloader/Linux-64bit/run ../../pyinstaller
+    # cp -a ../PyInstaller/bootloader/Linux-64bit/run ../../pyinstaller
+    # cp -a build/release/run ../../pyinstaller
     cd $PREVDIR
+    $VENV/bin/pip install -q -e $VENV/bin/pyinstaller-src
 else
     # install pyinstaller from pip
     $VENV/bin/pip install -q -r requirements-build.txt
 fi
 ./script/build/write-git-sha
+ls -l $VENV/bin/
 su -c "$VENV/bin/pyinstaller docker-compose.spec" user
 mv dist/docker-compose $TARGET
 $TARGET version
