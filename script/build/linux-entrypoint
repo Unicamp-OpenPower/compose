@@ -17,7 +17,7 @@ if [[ "$ARCH" == "ppc64le" ]]; then
     cd pyinstaller-src && git checkout master
     cd bootloader
     python ./waf distclean all --no-lsb
-    python waf configure --no-lsb build install
+    python waf all configure --no-lsb build install
     cp build/release/run ../../pyinstaller
 
 else
