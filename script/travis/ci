@@ -8,7 +8,7 @@ if [[ "$TRAVIS_OS_NAME" == "linux" ]]; then
     if [[ "$ARCH" == "ppc64le" ]]; then
         tox -e py27,py37 -- tests/unit
     else
-        tox -e py27,py36,py37 -- tests/unit
+        tox -e py27,py37 -- tests/unit
     fi
 else
     tox -e py27,py36,py37 -- tests/unit
