@@ -2,10 +2,6 @@ sudo: required
 
 language: python
 
-# python:
-#   - "2.7"
-#   - "3.7"
-
 matrix:
   include:
     - os: linux-ppc64le
@@ -25,14 +21,14 @@ script:
   - ./script/travis/ci
   - ./script/travis/build-binary
 
-#before_deploy:
-#  - "./script/travis/render-bintray-config.py < ./script/travis/bintray.json.tmpl > ./bintray.json"
+before_deploy:
+ - "./script/travis/render-bintray-config.py < ./script/travis/bintray.json.tmpl > ./bintray.json"
 
-#deploy:
-#  provider: bintray
-#  user: docker-compose-roleuser
-#  key: '$BINTRAY_API_KEY'
-#  file: ./bintray.json
-#  skip_cleanup: true
-#  on:
-#    all_branches: true
+deploy:
+ provider: bintray
+ user: docker-compose-roleuser
+ key: '$BINTRAY_API_KEY'
+ file: ./bintray.json
+ skip_cleanup: true
+ on:
+   all_branches: true
