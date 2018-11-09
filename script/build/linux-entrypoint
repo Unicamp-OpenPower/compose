@@ -10,7 +10,7 @@ ARCH=$(uname -m)
 mkdir -p `pwd`/dist
 chmod 777 `pwd`/dist
 
-if [[ "$ARCH" == "x86_32" ] || [ "$ARCH" == "x86_64" ]]; then
+if [[ "$ARCH" == "x86_32" ]] || [[ "$ARCH" == "x86_64" ]]; then
     # install requeriments from pip
     $VENV/bin/pip install -q -r requirements-build.txt
 else
